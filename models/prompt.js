@@ -1,20 +1,21 @@
-import mongoose, {Schema, model, models} from 'mongoose'
+const mongoose = require('mongoose');
+const { model, models, Schema } = mongoose;
 
 const PromptSchema = new Schema({
-    creator:{
-        type: mongoose.Schema.Types.ObjectId,
+    creator: {
+        type: Schema.Types.ObjectId,
         ref: 'User',
     },
     prompt: {
         type: String,
-        requried: [true, 'Prompt is requried']
+        required: [true, 'Prompt is required'] // Fixed typo
     },
     tag: {
         type: String,
-        required: [true,'tag is requried']
+        required: [true, 'Tag is required'] // Fixed typo
     }
-})
+});
 
-const Prompt = models.Prompt || model ('Prompt',PromptSchema)
+const Prompt = (models && models.Prompt) || model('Prompt', PromptSchema);
 
-export default Prompt
+export default Prompt;
