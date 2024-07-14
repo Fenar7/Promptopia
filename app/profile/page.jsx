@@ -11,13 +11,17 @@ const MyProfile =  () => {
     const [posts,setPosts] = useState([])
 
     useEffect(()=>{
+        console.log('dfdf')
         const fetchPosts = async () => {
           const response = await fetch(`/api/users/${session?.user.id}/posts`)
           const data = await response.json()
           setPosts(data)
         }
         if(session?.user.id){
+            console.log('session exists------')
             fetchPosts()
+        }else{
+            console.log('session dosent exist')
         }
       },[])
 
