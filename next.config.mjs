@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslink: {
-    ignoreDuringBuilds: true,
-  },
     experimental: {
       appDir: true,
       serverComponentsExternalPackages: ["mongoose"],
