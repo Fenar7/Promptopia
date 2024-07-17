@@ -34,8 +34,13 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    const loadPosts = async () => {
+      const data = await fetchPosts();
+      setAllPosts(data);
+    };
+
+    loadPosts();
+  }, []);
 
   const filterPrompts = (searchtext) => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search

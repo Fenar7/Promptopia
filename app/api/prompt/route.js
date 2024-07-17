@@ -3,7 +3,6 @@ import Prompt from '@models/prompt'
 import { stringify } from 'postcss'
 
 export const GET = async(request) => {
-    res.setHeader('Cache-Control', 'no-store');
     try{
         await connectToDB()
 
